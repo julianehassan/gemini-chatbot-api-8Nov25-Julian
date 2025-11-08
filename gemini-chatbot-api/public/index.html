@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini AI Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="chat-container">
+    <div class="header">
+      <h1>Gemini AI Chatbot</h1>
+      <button id="toggle-theme">Dark Mode</button>
+    </div>
+
+    <div id="chat-box" class="chat-box"></div>
+
+  <form id="chat-form" class="chat-form">
+  <button type="button" id="emoji-btn" class="emoji-btn">😊</button>
+  <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off" />
+  <button type="submit">Send</button>
+</form>
+
+  </div>
+
+  <!-- Load your chat logic -->
+  <script src="script.js"></script>
+
+  <!-- Add typing animation support -->
+  <script>
+    function showTyping() {
+      const box = document.getElementById('chat-box');
+      const typing = document.createElement('div');
+      typing.className = 'message bot typing';
+      typing.innerHTML = `
+        <div class="avatar bot-avatar"></div>
+        <div class="bubble">Gemini is typing<span class="dots">...</span></div>
+      `;
+      box.appendChild(typing);
+      box.scrollTop = box.scrollHeight;
+      return typing;
+    }
+
+    // Dark mode toggle
+    document.getElementById('toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  </script>
+
+</body>
+</html>
+
